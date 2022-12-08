@@ -7,7 +7,7 @@ function Box(props: ThreeElements['mesh']) {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
   useFrame((state, delta) => {
-    mesh.current.rotation.y += 0.01
+    mesh.current.rotation.z += 0.01
     mesh.current.rotation.x += 0.01
   })
   return (

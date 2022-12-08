@@ -1,15 +1,17 @@
 import { ThreeElements, useFrame, useLoader } from '@react-three/fiber';
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-function Cookie(props: ThreeElements['primitive']) {
-  const gltf = useLoader(GLTFLoader, 'cookie.gltf')
+import { useRef } from 'react';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+function Cookie(props: ThreeElements['mesh']) {
+  const mesh = useRef<THREE.Mesh>(null!);
+  const gltf = useLoader(GLTFLoader, 'cookie.gltf');
   useFrame((state, delta) => {
-    gltf.scene.rotateZ(0.01)
-    gltf.scene.rotateY(0.01)
-  })
+    mesh.current.rotation.y += 0.01;
+    mesh.current.rotation.x += 0.01;
+  });
   return (
-    <group>
-      <primitive {...props} object={gltf.scene} scale={0.2}/>
-    </group>
+    <mesh {...props} ref={mesh} scale={0.2}>
+      <primitive object={gltf.scene} />
+    </mesh>
   );
 }
 
