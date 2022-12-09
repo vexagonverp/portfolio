@@ -7,14 +7,11 @@ import Cookie from './components/Cookie';
 function App() {
   return (
     <div className='App'>
-      Cool cookie
       <Canvas>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
         <Box position={[-1.5, 0, 0]} />
         <Cookie position={[1.5, 0, 0]} />
         <OrbitControls />
-        {/* <Environment preset="sunset" background /> */}
+        <Environment preset={'dawn'} background blur={0.8}/>
       </Canvas>
     </div>
   );
