@@ -1,14 +1,14 @@
 import './App.css';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
-import Box from './components/Box';
 import Cookie from './components/Cookie';
+import Donut from './components/Donut';
 
 function App() {
   return (
     <div className='App'>
       <Canvas>
-        <Box position={[-1.5, 0, 0]} />
+        <Donut position={[-1.5, 0, 0]} />
         <Cookie position={[1.5, 0, 0]} />
         <OrbitControls />
         <Environment preset={'dawn'} background blur={0.8}/>
